@@ -1,0 +1,14 @@
+// Configuration Cloudflare : site 100 % statique, servi depuis public/
+{
+  "name": "kaleido",
+  "compatibility_date": "2026-10-01",
+  // Adresse officielle (à créer dans Cloudflare) ; workers.dev fermé pour éviter une copie du site.
+  "routes": [{ "pattern": "kaleido.nicolaguel.fr", "custom_domain": true }],
+  "workers_dev": false,
+  "build": {
+    "command": "python3 build.py"
+  },
+  "assets": {
+    "directory": "./public"
+  }
+}

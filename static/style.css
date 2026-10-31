@@ -1,0 +1,251 @@
+/* Aiôn — feuille de style
+   Direction : classique mais moderne. Texte en serif de lecture (Literata),
+   titres en sans-serif (Instrument Sans), fond ivoire, accents or et lapis.
+   Un seul thème, clair. */
+
+/* ---------------------------------------------------------------- polices */
+
+@font-face { font-family: "Instrument Sans"; src: url("/polices/instrument-sans-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Instrument Sans"; src: url("/polices/instrument-sans-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Literata"; src: url("/polices/literata-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Literata"; src: url("/polices/literata-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Literata"; src: url("/polices/literata-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Literata"; src: url("/polices/literata-latin-600-italic.woff2") format("woff2"); font-weight: 600; font-style: italic; font-display: swap; }
+
+/* ---------------------------------------------------------------- jetons */
+
+:root {
+    color-scheme: light;
+
+    --velin: #f6f2e9;      /* fond */
+    --bande: #ece5d5;      /* fond du débat */
+    --encre: #22201b;      /* texte */
+    --encre-douce: #625c51;/* texte secondaire */
+    --filet: #ddd4c1;      /* filets */
+    --or: #b08b3c;         /* filets d'accent, puces */
+    --lapis: #2a46b8;      /* couleur vive : liens, temps, interaction */
+    --lapis-fonce: #1d338c;
+
+    --titre: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+    --texte: "Literata", Georgia, serif;
+
+    --colonne: 36rem;
+    --marge: 13rem;
+    --gouttiere: 1rem;
+}
+
+/* ---------------------------------------------------------------- base */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1.5rem; }
+
+body {
+    margin: 0;
+    background: var(--velin);
+    color: var(--encre);
+    font-family: var(--texte);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    font-variant-numeric: oldstyle-nums proportional-nums;
+}
+
+/* Césure seulement dans les paragraphes courants, jamais dans les titres ni les listes */
+.texte section > p, .debat p { hyphens: auto; }
+
+a { color: var(--lapis); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+a:hover { color: var(--lapis-fonce); text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--lapis); outline-offset: 3px; border-radius: 2px; }
+
+h1, h2, h3 {
+    font-family: var(--titre); font-weight: 600; line-height: 1.1; letter-spacing: -.02em;
+    color: var(--encre); font-variant-numeric: lining-nums;
+}
+h2 { font-size: 1.75rem; margin: 3.2rem 0 1rem; }
+h3 { font-size: 1.15rem; letter-spacing: -.01em; margin: 2.2rem 0 .5rem; }
+p { margin: 0 0 1.15em; }
+strong { font-weight: 600; }
+
+/* ---------------------------------------------------------------- en-tête et pied */
+
+.site-entete {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1.5rem;
+    max-width: calc(var(--colonne) + 2 * var(--marge)); margin: 0 auto; padding: 1.25rem var(--gouttiere);
+    font-family: var(--titre);
+}
+.marque { font-family: var(--titre); font-weight: 600; font-size: 1.5rem; letter-spacing: -.03em; color: var(--encre); text-decoration: none; }
+.marque:hover { color: var(--lapis); }
+.site-entete nav { display: flex; gap: 1.25rem; font-size: .95rem; font-weight: 500; }
+.site-entete nav a { color: var(--encre); text-decoration: none; }
+.site-entete nav a:hover, .site-entete nav a[aria-current] { color: var(--lapis); }
+.site-entete nav a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .4em; }
+
+.site-pied {
+    max-width: var(--colonne); margin: 6rem auto 0; padding: 2rem var(--gouttiere) 3rem;
+    border-top: 1px solid var(--filet); color: var(--encre-douce); font-size: .9rem;
+}
+.marque-pied { font-family: var(--titre); font-weight: 600; color: var(--encre); margin-right: .3rem; }
+
+/* ---------------------------------------------------------------- frise du temps long */
+
+.frise { display: block; width: 100%; height: auto; overflow: visible; }
+.frise-axe { stroke: var(--encre-douce); stroke-width: 1; }
+.frise-trait { stroke: var(--encre-douce); stroke-width: 1; }
+.frise-grad { fill: var(--encre-douce); font-family: var(--titre); font-size: 12px; text-anchor: middle; }
+.frise-point { fill: var(--lapis); stroke: var(--velin); stroke-width: 3; }
+.frise-libelle { fill: var(--lapis); font-family: var(--titre); font-weight: 600; font-size: 16px; text-anchor: middle; }
+.frise-periode { stroke: var(--lapis); stroke-width: 7; stroke-linecap: round; opacity: .55; }
+.frise a:hover .frise-periode { opacity: 1; }
+.frise a:hover .frise-point { fill: var(--lapis-fonce); }
+
+/* ---------------------------------------------------------------- page de contenu */
+
+.page {
+    display: grid;
+    grid-template-columns: 1fr min(var(--colonne), 100% - 2 * var(--gouttiere)) 1fr;
+    column-gap: var(--gouttiere);
+}
+.page > * { grid-column: 2; }
+
+.titraille { padding-top: 2.5rem; margin-bottom: 2.5rem; }
+.ariane { font-family: var(--titre); font-size: .9rem; color: var(--encre-douce); margin-bottom: 1.2rem; }
+.ariane a { color: var(--encre-douce); }
+.ariane a:hover { color: var(--lapis); }
+.titraille h1 { font-size: clamp(2.3rem, 6.5vw, 3.5rem); line-height: 1.04; letter-spacing: -.03em; margin: 0 0 1.3rem; }
+.chapo { font-style: italic; font-size: 1.28rem; line-height: 1.5; margin-bottom: 1.3rem; }
+.infos { font-family: var(--titre); font-size: .9rem; color: var(--encre-douce); margin-bottom: 1.8rem; }
+.frise-page { margin: 0 0 .5rem; }
+
+/* Illustration principale : elle déborde de la colonne sur grand écran */
+.illustration { margin: 0 0 2.8rem; }
+.illustration img { display: block; width: 100%; height: auto; background: var(--bande); }
+.illustration figcaption { font-size: .88rem; line-height: 1.5; color: var(--encre-douce); margin-top: .7rem; max-width: var(--colonne); }
+.illustration .credit { font-family: var(--titre); font-size: .8rem; }
+.illustration .credit a { color: var(--encre-douce); }
+
+/* L'essentiel : un relevé, pas une carte */
+.essentiel { border-top: 2px solid var(--or); border-bottom: 1px solid var(--filet); padding: .3rem 0 .6rem; margin-bottom: 2.5rem; }
+.essentiel h2 { font-size: 1.15rem; letter-spacing: -.01em; margin: .9rem 0 .7rem; }
+.essentiel ul { margin: 0; padding-left: 1.1rem; }
+.essentiel li { margin-bottom: .55rem; }
+.essentiel li::marker { color: var(--or); }
+
+/* Sommaires : replié dans le texte sur petit écran, dans la marge sur grand écran */
+.sommaire-liste { list-style: none; margin: 0; padding: 0; }
+.sommaire-liste li { margin: .35rem 0; line-height: 1.35; }
+.sommaire-liste a { color: var(--encre-douce); text-decoration: none; }
+.sommaire-liste a:hover { color: var(--lapis); text-decoration: underline; }
+.sommaire-repli { border-bottom: 1px solid var(--filet); padding-bottom: .8rem; margin-bottom: 1rem; font-family: var(--titre); font-size: .95rem; }
+.sommaire-repli summary { cursor: pointer; color: var(--lapis); font-weight: 500; }
+.sommaire-repli[open] summary { margin-bottom: .5rem; }
+.sommaire-marge { display: none; }
+
+.texte > section > p:first-of-type { margin-top: 0; }
+.texte blockquote { margin: 1.5rem 0; padding-left: 1.2rem; border-left: 2px solid var(--or); font-style: italic; }
+
+/* Le débat : la page change de registre */
+.page > .debat {
+    grid-column: 1 / -1;
+    background: var(--bande);
+    border-top: 3px solid var(--lapis);
+    margin: 3.5rem 0 1rem;
+    padding: .8rem var(--gouttiere) 2rem;
+}
+.debat > * { max-width: var(--colonne); margin-left: auto; margin-right: auto; }
+.debat h2 { margin-top: 2rem; }
+.debat p > strong:first-child { font-family: var(--titre); font-size: 1.1rem; font-weight: 600; letter-spacing: -.01em; display: block; margin-bottom: .15rem; }
+
+/* Repères : une chronologie */
+.chronologie { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--filet); }
+.chronologie li { position: relative; display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; padding: .45rem 0 .45rem 1.2rem; }
+.chronologie li::before { content: ""; position: absolute; left: -4px; top: 1.05rem; width: 7px; height: 7px; border-radius: 50%; background: var(--lapis); }
+.chrono-date { font-family: var(--titre); font-weight: 600; font-size: .98rem; color: var(--lapis); padding-top: .1rem; }
+
+/* Annexes */
+.annexe ul { padding-left: 1.1rem; }
+.annexe li { margin-bottom: .6rem; }
+.annexe li::marker { color: var(--or); }
+.type-lien { font-family: var(--titre); font-size: .85rem; color: var(--encre-douce); }
+.a-venir { color: var(--encre-douce); border-bottom: 1px dotted var(--encre-douce); cursor: help; }
+
+/* ---------------------------------------------------------------- accueil et index */
+
+.accueil-ouverture, .accueil-une, .accueil-liste, .index {
+    max-width: calc(var(--colonne) + 8rem); margin: 0 auto; padding: 0 var(--gouttiere);
+}
+.accueil-ouverture { padding-top: 3.5rem; padding-bottom: 1rem; }
+.accueil-titre { font-size: clamp(4rem, 15vw, 7.5rem); font-weight: 600; letter-spacing: -.05em; line-height: .9; margin: 0; }
+.accueil-devise { font-style: italic; font-size: 1.4rem; line-height: 1.4; margin: 1rem 0 0; max-width: 30rem; }
+
+.accueil-une h2, .accueil-liste h2 { font-size: 1rem; font-weight: 500; letter-spacing: 0; color: var(--encre-douce); margin: 3.5rem 0 1rem; }
+.une { display: block; text-decoration: none; color: var(--encre); border-top: 2px solid var(--or); padding-top: 1rem; }
+.une-image { display: block; width: 100%; height: auto; margin-bottom: 1.2rem; }
+.une-titre { display: block; font-family: var(--titre); font-weight: 600; letter-spacing: -.03em; font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.05; margin-bottom: .8rem; }
+.une-chapo { display: block; max-width: var(--colonne); margin-bottom: 1.2rem; }
+.une .frise-page { max-width: var(--colonne); margin-bottom: 1rem; }
+.une-lire { font-family: var(--titre); font-weight: 500; color: var(--lapis); text-decoration: underline; text-underline-offset: .2em; }
+.une:hover .une-titre { color: var(--lapis); }
+
+.index-intro { font-size: 1.1rem; color: var(--encre-douce); max-width: var(--colonne); margin: -1rem 0 2rem; }
+.index h1 { font-size: 3rem; letter-spacing: -.03em; margin: .5rem 0 2rem; }
+.cartes { list-style: none; margin: 0; padding: 0; }
+.carte a { display: grid; grid-template-columns: 7rem 1fr; gap: .2rem 1.2rem; padding: 1rem 0; border-bottom: 1px solid var(--filet); text-decoration: none; color: var(--encre); }
+.carte-type { grid-row: span 2; font-family: var(--titre); color: var(--encre-douce); font-size: .9rem; padding-top: .2rem; }
+.carte-titre { font-family: var(--titre); font-weight: 600; letter-spacing: -.02em; font-size: 1.3rem; line-height: 1.15; }
+.carte-chapo { font-size: .95rem; color: var(--encre-douce); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.carte a:hover .carte-titre { color: var(--lapis); }
+
+/* ---------------------------------------------------------------- petits écrans */
+
+@media (max-width: 34rem) {
+    body { font-size: 1rem; }
+    h2 { font-size: 1.5rem; }
+    .chapo { font-size: 1.15rem; }
+    .chronologie li { grid-template-columns: 1fr; gap: 0; }
+    .carte a { grid-template-columns: 1fr; }
+    .carte-type { grid-row: auto; padding: 0; }
+    .frise-grad { font-size: 15px; }
+    .grad-secondaire { display: none; }
+    .frise-libelle { font-size: 20px; }
+}
+
+/* ---------------------------------------------------------------- grands écrans : sommaire dans la marge */
+
+@media (min-width: 72rem) {
+    .page { grid-template-columns: 1fr var(--marge) var(--colonne) var(--marge) 1fr; }
+    .page > * { grid-column: 3; }
+    .page > .debat { grid-column: 1 / -1; }
+    .page > .illustration { grid-column: 2 / 5; }
+    .page > .illustration figcaption { margin-left: calc(var(--marge) + var(--gouttiere)); }
+    .page > .illustration.etroite { grid-column: 3; }
+    .page > .illustration.etroite figcaption { margin-left: 0; }
+    .page > .corps-recit { grid-column: 2 / 4; display: grid; grid-template-columns: var(--marge) var(--colonne); column-gap: var(--gouttiere); }
+    .corps-recit > .texte { grid-column: 2; }
+    .sommaire-marge {
+        display: block; align-self: start;
+        position: sticky; top: 1.5rem; padding-right: 1.5rem; font-family: var(--titre); font-size: .85rem;
+    }
+    .sommaire-titre { font-weight: 600; color: var(--encre); margin-bottom: .5rem; }
+    .sommaire-repli { display: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+}
+
+/* ---------------------------------------------------------------- pied commun à la famille nicolaguel.fr */
+.pied-ligne { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; font-family: "Instrument Sans", "Helvetica Neue", Arial, sans-serif; font-size: .9375rem; font-weight: 500; color: var(--encre-douce); }
+.pied-ligne a { text-decoration: none; }
+.pied-ligne a:hover { text-decoration: underline; }
+.pied-site { font-weight: 600; color: var(--encre); }
+.pied-hub { color: var(--encre-douce); }
+.pied-mention { margin: .5rem 0 0; font-family: "Instrument Sans", "Helvetica Neue", Arial, sans-serif; font-size: .8125rem; color: var(--encre-douce); }
+.pied-mention a { color: inherit; }
+
+/* ---- Kaléido : éléments propres aux fiches (provisoire, avant la direction visuelle) ---- */
+.lien-evitement { position: absolute; left: -999px; top: 0; background: var(--encre); color: #fff; padding: .6rem 1rem; z-index: 10; }
+.lien-evitement:focus { left: 0; }
+.identite { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .8rem 1.6rem; margin: 0 0 1.6rem; padding: 1rem 0; border-top: 1px solid var(--filet); border-bottom: 1px solid var(--filet); }
+.identite dt { font-family: var(--titre); font-size: .8rem; color: var(--encre-douce); }
+.identite dd { margin: 0; font-size: .98rem; }
+.rencontre { font-style: italic; border-left: 2px solid var(--or); padding-left: 1rem; margin: 0 0 1.6rem; }
