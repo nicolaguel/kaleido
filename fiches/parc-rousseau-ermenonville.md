@@ -18,7 +18,7 @@ image:
   licence: tous droits réservés
   legende: "L'île des Peupliers et son monument, au bord du lac du parc."
   alt: "Un lac calme reflète une rangée de grands peupliers ; sur l'île, à droite, un monument de pierre blanche ; au loin, une demeure claire parmi les arbres."
-publie: non
+publie: oui
 mise_a_jour: 2026-10-31
 ---
 

@@ -20,7 +20,7 @@ image:
  licence: domaine public
  legende: "La version de Vienne permet de comparer l'immensité de la tour aux ouvriers et à la ville qui l'entourent."
  alt: "Une tour circulaire inachevée aux multiples arcades domine une ville et un port ; au premier plan à gauche, un souverain et sa suite font face à des tailleurs de pierre."
-publie: non
+publie: oui
 mise_a_jour: 2026-10-31
 ---
 
