@@ -35,7 +35,7 @@ MANIFESTE_IMAGES = RACINE / "illustrations.json"
 NOM_SITE = "Kaléido"
 URL_SITE = "https://kaleido.nicolaguel.fr"
 AUTEUR = "Nicolas Guelle"
-DEVISE = "Ce qui m’a arrêté en chemin, et ce que j’en ai compris."
+DEVISE = "Un cahier de cultures, glanées au fil des rencontres."
 # Tant que le site est en conception : non indexé par les moteurs.
 EN_CONCEPTION = True
 
@@ -134,6 +134,8 @@ def preparer(meta: dict) -> dict:
             meta[cle] = typographie(str(meta[cle]))
     prefixe_nature = NATURES.get(meta.get("nature"), ("Fiche", "Fiches"))
     meta["libelle"] = prefixe_nature[0]
+    meta["classe"] = "nature-" + slugifier(str(meta.get("nature", "")).replace("œ", "oe"))
+    meta["themes"] = [str(t) for t in (meta.get("themes") or [])]
     meta["url"] = f"/{PREFIXE}/{meta['slug']}/"
     meta["mots"] = len(re.findall(r"\w+", meta["corps"]))
     meta["minutes"] = max(1, round(meta["mots"] / 230))
@@ -212,13 +214,22 @@ def illustration(page: dict, manifeste: dict) -> str:
 
 # ---------------------------------------------------------------- gabarits
 
+LOGO = ('<svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">'
+        '<rect x="1" y="1" width="12" height="12" fill="#a63d2a"/>'
+        '<rect x="15" y="1" width="12" height="12" fill="#2f6b4f"/>'
+        '<rect x="1" y="15" width="12" height="12" fill="#8a5a12"/>'
+        '<rect x="15" y="15" width="12" height="12" fill="#6b3f6f"/></svg>')
+
+
 def entete(courant: str = "") -> str:
-    url = f"/{PREFIXE}/"
-    actif = ' aria-current="page"' if courant == url else ""
+    liens = []
+    for url, libelle in ((f"/{PREFIXE}/", "Fiches"), ("/themes/", "Thèmes")):
+        actif = ' aria-current="page"' if courant == url else ""
+        liens.append(f'<a href="{url}"{actif}>{libelle}</a>')
     return f"""<a class="lien-evitement" href="#contenu">Aller au contenu</a>
 <header class="site-entete">
-    <a class="marque" href="/">{NOM_SITE}</a>
-    <nav aria-label="Navigation principale"><a href="{url}"{actif}>Fiches</a></nav>
+    <a class="marque" href="/">{LOGO}{NOM_SITE}</a>
+    <nav aria-label="Navigation principale">{"".join(liens)}</nav>
 </header>"""
 
 
@@ -230,7 +241,7 @@ PIED = f"""<footer class="site-pied">
 
 def gabarit(titre: str, description: str, contenu: str, courant: str = "",
             url: str = "/", image: str = "", donnees: dict | None = None,
-            type_og: str = "website") -> str:
+            type_og: str = "website", script: bool = False) -> str:
     robots = ('<meta name="robots" content="noindex, nofollow">\n'
               if EN_CONCEPTION or BROUILLONS else "")
     canonique = URL_SITE + url
@@ -241,6 +252,7 @@ def gabarit(titre: str, description: str, contenu: str, courant: str = "",
         jsonld = ('<script type="application/ld+json">'
                   + json.dumps(donnees, ensure_ascii=False).replace("</", "<\\/")
                   + '</script>\n')
+    js = '<script src="/kaleido.js" defer></script>\n' if script else ""
     return f"""<!doctype html>
 <html lang="fr">
 <head>
@@ -258,9 +270,9 @@ def gabarit(titre: str, description: str, contenu: str, courant: str = "",
 <meta property="og:locale" content="fr_FR">
 {meta_image}<link rel="alternate" type="application/rss+xml" title="{NOM_SITE}" href="/flux.xml">
 {robots}{jsonld}<link rel="preload" href="/polices/literata-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/polices/instrument-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/polices/bricolage-grotesque-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
-</head>
+{js}</head>
 <body>
 {entete(courant)}
 <main id="contenu">
@@ -290,49 +302,69 @@ def rencontre_html(page: dict) -> str:
     return f'<p class="rencontre">{html.escape(typographie(str(page["rencontre"])))}</p>'
 
 
+def url_theme(theme: str) -> str:
+    return f"/themes/{slugifier(theme)}/"
+
+
 def page_fiche(page: dict, index: dict, pages: list, manifeste: dict) -> str:
     corps_html = rendre_markdown(liens_wiki(page["corps"], index))
     sections = decouper_sections(corps_html)
 
-    en_bref, corps, annexes = "", [], []
+    blocs, sommaire = [], []
     for s in sections:
         if s["id"] == SECTION_EN_BREF:
-            en_bref = f'<aside class="essentiel" aria-labelledby="{s["id"]}">{s["html"]}</aside>'
+            blocs.append(f'<section class="en-bref">{s["html"]}</section>')
+        elif s["id"] == "sources":
+            blocs.append(f'<section class="annexe sources">{s["html"]}</section>')
         elif s["id"] in SECTIONS_ANNEXES:
-            annexes.append(f'<section class="annexe">{s["html"]}</section>')
+            blocs.append(f'<section class="annexe">{s["html"]}</section>')
         else:
-            corps.append(f'<section>{s["html"]}</section>')
+            blocs.append(f'<section>{s["html"]}</section>')
+        if s["id"]:
+            sommaire.append(f'<li><a href="#{s["id"]}">{s["titre"]}</a></li>')
 
+    # « Dans le cahier » : les thèmes de la fiche et les fiches qui la citent
+    cahier = []
+    if page["themes"]:
+        themes = "".join(f'<li><a href="{url_theme(t)}">{html.escape(t)}</a></li>' for t in page["themes"])
+        cahier.append(f'<p>Les fiches des mêmes thèmes :</p><ul class="liste-themes">{themes}</ul>')
     retour = liens_retour(page, pages)
     if retour:
         items = "".join(f'<li><a href="{p["url"]}">{html.escape(p["titre"])}</a>'
                         f' <span class="type-lien">{p["libelle"].lower()}</span></li>'
                         for p in sorted(retour, key=lambda p: p["titre"]))
-        annexes.append(f'<section class="annexe"><h2 id="cite-dans">Cité dans</h2><ul>{items}</ul></section>')
+        cahier.append(f'<p>Cité dans :</p><ul class="cites">{items}</ul>')
+    cahier_html = (f'<aside class="dans-le-cahier" aria-labelledby="dans-le-cahier">'
+                   f'<h2 id="dans-le-cahier">Dans le cahier</h2>{"".join(cahier)}</aside>'
+                   if cahier else "")
 
     maj = date_fr(page.get("mise_a_jour", ""))
-    brouillon = ('<p class="infos"><strong>Brouillon : non publié.</strong></p>'
+    format_ = f" · {page['format']}" if page.get("format") else ""
+    brouillon = ('<p class="brouillon">Brouillon : non publié.</p>'
                  if not page["publie_ok"] else "")
     duree = ("moins de 2 minutes" if page["minutes"] < 2
              else f"environ {page['minutes']} minutes")
-    contenu = f"""<article class="page">
-<div class="titraille">
+    nav_sommaire = (f'<nav class="sommaire" aria-label="Sommaire"><p class="sommaire-titre">Dans cette fiche</p>'
+                    f'<ol>{"".join(sommaire)}</ol></nav>') if len(sommaire) >= 3 else ""
+    contenu = f"""<article class="cadre {page["classe"]}">
+<div class="fiche-tete">
     <p class="ariane"><a href="/">Accueil</a> › <a href="/{PREFIXE}/">Fiches</a></p>
+    <p class="fiche-nature">{page["libelle"]}{format_}</p>
     <h1>{html.escape(page["titre"])}</h1>
     <p class="chapo">{html.escape(page.get("chapo", ""))}</p>
-    <p class="infos">{page["libelle"]}, {duree} de lecture. Mis à jour le {maj}.</p>
+    <p class="infos">{duree} de lecture. Mis à jour le {maj}.</p>
     {brouillon}
-    {identite_html(page)}
     {rencontre_html(page)}
 </div>
+{identite_html(page)}
 {illustration(page, manifeste)}
-<div class="corps-recit">
+<div class="fiche-corps">
+{nav_sommaire}
 <div class="texte">
-{en_bref}
-{"".join(corps)}
-{"".join(annexes)}
+{"".join(blocs)}
 </div>
 </div>
+{cahier_html}
 </article>"""
     bloc = page.get("image") or {}
     nom_image = bloc.get("fichier")
@@ -356,6 +388,8 @@ def donnees_structurees(page: dict, image: str) -> dict:
         "isAccessibleForFree": True,
         "articleSection": page["libelle"],
     }
+    if page["themes"]:
+        article["keywords"] = ", ".join(page["themes"])
     if image:
         article["image"] = URL_SITE + image
     ariane = {
@@ -371,9 +405,18 @@ def donnees_structurees(page: dict, image: str) -> dict:
 
 # ---------------------------------------------------------------- fichiers pour moteurs et IA
 
+def tous_les_themes(pages: list) -> dict:
+    themes: dict = {}
+    for p in pages:
+        for t in p["themes"]:
+            themes.setdefault(t, []).append(p)
+    return dict(sorted(themes.items(), key=lambda kv: slugifier(kv[0])))
+
+
 def sitemap(pages: list) -> str:
     urls = [("/", max((iso(p.get("mise_a_jour")) for p in pages), default="")),
-            (f"/{PREFIXE}/", None)]
+            (f"/{PREFIXE}/", None), ("/themes/", None)]
+    urls += [(url_theme(t), None) for t in tous_les_themes(pages)]
     urls += [(p["url"], iso(p.get("mise_a_jour"))) for p in pages]
     lignes = "".join(
         f"  <url><loc>{URL_SITE}{u}</loc>" + (f"<lastmod>{m}</lastmod>" if m else "") + "</url>\n"
@@ -408,14 +451,14 @@ def llms_txt(pages: list) -> str:
     blocs = []
     for nature, (_, pluriel) in NATURES.items():
         de_la_nature = sorted((p for p in pages if p.get("nature") == nature),
-                              key=lambda p: p["titre"])
+                              key=lambda p: slugifier(p["titre"]))
         if not de_la_nature:
             continue
         lignes = "\n".join(f"- [{p['titre']}]({URL_SITE}{p['url']}): {p.get('chapo', '')}"
                            for p in de_la_nature)
         blocs.append(f"## {pluriel}\n\n{lignes}")
-    return (f"# {NOM_SITE}\n\n> {DEVISE} Cahier de culture en français : fiches sur des œuvres, "
-            f"des lieux, des personnes et des notions, écrites par {AUTEUR} avec l'aide "
+    return (f"# {NOM_SITE}\n\n> {DEVISE} Fiches en français sur des œuvres, des lieux, "
+            f"des personnes et des notions, écrites par {AUTEUR} avec l'aide "
             "d'une intelligence artificielle, relues et vérifiées par l'auteur.\n\n"
             "Chaque fiche comporte un chapô, une rubrique « En bref », éventuellement "
             "des sections de développement, des pistes pour aller plus loin et les sources.\n\n"
@@ -424,49 +467,104 @@ def llms_txt(pages: list) -> str:
 
 # ---------------------------------------------------------------- pages d'ensemble
 
-def carte(p: dict) -> str:
-    return (f'<li class="carte"><a href="{p["url"]}">'
-            f'<span class="carte-type">{p["libelle"]}</span>'
+def normaliser(texte: str) -> str:
+    """Même normalisation que la recherche en JavaScript : minuscules, sans accents."""
+    t = unicodedata.normalize("NFD", texte.lower().replace("œ", "oe"))
+    return "".join(c for c in t if not unicodedata.combining(c))
+
+
+def carte(p: dict, manifeste: dict) -> str:
+    bloc = p.get("image") or {}
+    nom = bloc.get("fichier")
+    if nom in manifeste:
+        d = manifeste[nom]
+        visuel = (f'<img class="carte-image" src="/images/{nom}-800.webp" width="{d["largeur"]}" '
+                  f'height="{d["hauteur"]}" alt="" loading="lazy" decoding="async">')
+    else:
+        visuel = f'<span class="carte-aplat" aria-hidden="true">{p["libelle"]}</span>'
+    recherche = normaliser(" ".join([p["titre"], " ".join(map(str, p.get("alias") or [])),
+                                     p.get("chapo", ""), " ".join(p["themes"]), p["libelle"]]))
+    nature = slugifier(str(p.get("nature", "")).replace("œ", "oe"))
+    return (f'<li class="carte {p["classe"]}" data-nature="{nature}" data-recherche="{html.escape(recherche)}">'
+            f'<a href="{p["url"]}">{visuel}'
+            f'<span class="carte-nature">{p["libelle"]}</span>'
             f'<span class="carte-titre">{html.escape(p["titre"])}</span>'
             f'<span class="carte-chapo">{html.escape(p.get("chapo", ""))}</span>'
             f'</a></li>')
 
 
-def liste_par_nature(pages: list) -> str:
-    blocs = []
-    for nature, (_, pluriel) in NATURES.items():
-        de_la_nature = sorted((p for p in pages if p.get("nature") == nature),
-                              key=lambda p: p["titre"])
-        if de_la_nature:
-            cartes = "\n".join(carte(p) for p in de_la_nature)
-            blocs.append(f'<h2>{pluriel}</h2>\n<ul class="cartes">\n{cartes}\n</ul>')
-    return "\n".join(blocs) or "<p>Aucune fiche publiée pour le moment.</p>"
+def mosaique(pages: list, manifeste: dict, outils: bool = True) -> str:
+    if not pages:
+        return "<p>Aucune fiche publiée pour le moment.</p>"
+    cartes = "\n".join(carte(p, manifeste) for p in sorted(pages, key=lambda p: slugifier(p["titre"])))
+    barre = ""
+    if outils:
+        presentes = [n for n in NATURES if any(p.get("nature") == n for p in pages)]
+        boutons = ['<button type="button" aria-pressed="true">Tout</button>'] + [
+            f'<button type="button" aria-pressed="false" data-nature="{slugifier(n.replace("œ", "oe"))}">'
+            f'{NATURES[n][1]}</button>' for n in presentes]
+        barre = f"""<div class="outils" hidden>
+    <label class="recherche">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg>
+        <span class="cache">Rechercher dans le cahier</span>
+        <input type="search" placeholder="Rechercher une œuvre, un lieu, un nom…" autocomplete="off">
+    </label>
+    <div class="filtres" role="group" aria-label="Filtrer par nature">{"".join(boutons)}</div>
+</div>"""
+    return f"""{barre}
+<ul class="mosaique">
+{cartes}
+</ul>
+<p class="aucun" hidden>Aucune fiche ne correspond à cette recherche.</p>"""
 
 
-def page_accueil(pages: list) -> str:
-    contenu = f"""<section class="accueil-ouverture">
-    <h1 class="accueil-titre">{NOM_SITE}</h1>
-    <p class="accueil-devise">{DEVISE}</p>
+def page_accueil(pages: list, manifeste: dict) -> str:
+    contenu = f"""<div class="cadre">
+<section class="ouverture">
+    <h1 class="ouverture-titre">{NOM_SITE}</h1>
+    <p class="ouverture-accroche">{DEVISE}</p>
 </section>
-<section class="accueil-liste">
-{liste_par_nature(pages)}
-</section>"""
+{mosaique(pages, manifeste)}
+</div>"""
     donnees = {"@context": "https://schema.org", "@type": "WebSite", "name": NOM_SITE,
                "url": URL_SITE + "/", "inLanguage": "fr", "description": DEVISE,
                "author": {"@type": "Person", "name": AUTEUR}}
-    return gabarit(NOM_SITE, DEVISE, contenu, "/", url="/", donnees=donnees)
+    return gabarit(NOM_SITE, DEVISE, contenu, "/", url="/", donnees=donnees, script=True)
 
 
-def page_index(pages: list) -> str:
-    intro = ("Une fiche présente une œuvre, un lieu, une personne ou une notion : "
-             "d’abord un « en bref », puis, selon le sujet, un développement.")
-    contenu = f"""<section class="index">
-    <p class="ariane"><a href="/">Accueil</a></p>
-    <h1>Fiches</h1>
-    <p class="index-intro">{intro}</p>
-{liste_par_nature(pages)}
-</section>"""
-    return gabarit(f"Fiches — {NOM_SITE}", intro, contenu, f"/{PREFIXE}/", url=f"/{PREFIXE}/")
+def page_index(pages: list, manifeste: dict) -> str:
+    intro = ("Chaque fiche présente une œuvre, un lieu, une personne ou une notion : "
+             "d’abord en bref, puis, selon le sujet, en détail.")
+    contenu = f"""<div class="cadre">
+    <h1 class="page-titre">Fiches</h1>
+    <p class="page-intro">{intro}</p>
+{mosaique(pages, manifeste)}
+</div>"""
+    return gabarit(f"Fiches — {NOM_SITE}", intro, contenu, f"/{PREFIXE}/", url=f"/{PREFIXE}/", script=True)
+
+
+def page_themes(themes: dict) -> str:
+    items = "".join(f'<li><a href="{url_theme(t)}">{html.escape(t)} <span class="compte">{len(ps)}</span></a></li>'
+                    for t, ps in themes.items())
+    intro = "Les fiches regroupées par thème. Une fiche peut appartenir à plusieurs thèmes."
+    contenu = f"""<div class="cadre">
+    <h1 class="page-titre">Thèmes</h1>
+    <p class="page-intro">{intro}</p>
+    <ul class="liste-themes">{items}</ul>
+</div>"""
+    return gabarit(f"Thèmes — {NOM_SITE}", intro, contenu, "/themes/", url="/themes/")
+
+
+def page_theme(theme: str, pages: list, manifeste: dict) -> str:
+    n = len(pages)
+    intro = f"{n} fiche{'s' if n > 1 else ''} sur le thème « {theme} »."
+    contenu = f"""<div class="cadre">
+    <p class="ariane" style="margin-top:3rem"><a href="/">Accueil</a> › <a href="/themes/">Thèmes</a></p>
+    <h1 class="page-titre" style="margin-top:0">{html.escape(theme[:1].upper() + theme[1:])}</h1>
+    <p class="page-intro">{html.escape(intro)}</p>
+{mosaique(pages, manifeste, outils=False)}
+</div>"""
+    return gabarit(f"{theme} — {NOM_SITE}", intro, contenu, "/themes/", url=url_theme(theme))
 
 
 # ---------------------------------------------------------------- build
@@ -490,18 +588,22 @@ def main() -> None:
     pages = [preparer(m) for m in retenues]
     manifeste = json.loads(MANIFESTE_IMAGES.read_text()) if MANIFESTE_IMAGES.exists() else {}
     index = {p["slug"]: p for p in pages}
+    themes = tous_les_themes(pages)
 
     for page in pages:
         ecrire(page["url"], page_fiche(page, index, pages, manifeste))
-    ecrire(f"/{PREFIXE}/", page_index(pages))
-    ecrire("/", page_accueil(pages))
+    ecrire(f"/{PREFIXE}/", page_index(pages, manifeste))
+    ecrire("/themes/", page_themes(themes))
+    for theme, du_theme in themes.items():
+        ecrire(url_theme(theme), page_theme(theme, du_theme, manifeste))
+    ecrire("/", page_accueil(pages, manifeste))
     (SORTIE / "sitemap.xml").write_text(sitemap(pages), encoding="utf-8")
     (SORTIE / "robots.txt").write_text(robots_txt(), encoding="utf-8")
     (SORTIE / "flux.xml").write_text(flux_rss(pages), encoding="utf-8")
     (SORTIE / "llms.txt").write_text(llms_txt(pages), encoding="utf-8")
 
     ignorees = len(toutes) - len(publiees)
-    print(f"{len(pages)} fiche(s) générée(s) dans {SORTIE}"
+    print(f"{len(pages)} fiche(s) générée(s) dans {SORTIE}, {len(themes)} thème(s)"
           + (f" ; {ignorees} brouillon(s) {'inclus' if BROUILLONS else 'ignoré(s)'}" if ignorees else ""))
     for m in toutes:
         if not m["publie_ok"] and m["marqueurs"]:
