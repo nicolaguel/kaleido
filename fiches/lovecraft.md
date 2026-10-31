@@ -5,6 +5,13 @@ nature: personne
 format: brève
 chapo: "Écrivain américain de l'horreur cosmique, Lovecraft imagine des savoirs et des puissances devant lesquels l'humanité perd sa place centrale. Sa réception associe l'influence de ses récits, leur prolongement collectif et l'examen de son racisme."
 themes: [littérature, imaginaire]
+image:
+  fichier: lovecraft-1934
+  source: https://commons.wikimedia.org/wiki/File:H._P._Lovecraft,_June_1934.jpg
+  credit: "Photographie de juin 1934. Domaine public, via Wikimedia Commons."
+  licence: domaine public
+  legende: "H. P. Lovecraft en juin 1934, trois ans avant sa mort."
+  alt: "Portrait en noir et blanc d'un homme au visage allongé, cheveux courts, en costume sombre et cravate, regardant l'objectif."
 publie: non
 mise_a_jour: 2026-10-31
 ---
