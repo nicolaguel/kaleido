@@ -17,7 +17,7 @@ Site frère d'Aiôn, Acta, Silva et Popote (nicolaguel.fr). La base technique es
 - Une fiche n'est publiée que si son en-tête porte `publie: oui`. Seul Nicolas le décide.
 - Le build échoue si une fiche publiée contient un marqueur `<!-- À VÉRIFIER` ou n'a pas ses champs obligatoires.
 - `python3 build.py --brouillons` : aperçu local qui inclut les brouillons (le site produit est alors noindex).
-- Tant que `EN_CONCEPTION = True` dans `build.py`, le site est noindex.
+- `EN_CONCEPTION = True` dans `build.py` repasse le site en noindex (ouvert aux moteurs depuis le 31 octobre 2026).
 
 ## Commandes
 

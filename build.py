@@ -37,7 +37,7 @@ URL_SITE = "https://kaleido.nicolaguel.fr"
 AUTEUR = "Nicolas Guelle"
 DEVISE = "Un cahier de cultures, glanées au fil des rencontres."
 # Tant que le site est en conception : non indexé par les moteurs.
-EN_CONCEPTION = True
+EN_CONCEPTION = False
 
 PREFIXE = "fiches"
 NATURES = {  # nature -> (singulier, pluriel)
