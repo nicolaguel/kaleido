@@ -201,7 +201,10 @@ def illustration(page: dict, manifeste: dict) -> str:
     credit_html = html.escape(credit)
     if source:
         credit_html = f'<a href="{html.escape(source)}">{credit_html}</a>'
-    classe = "illustration" if dims["largeur"] >= 1100 else "illustration etroite"
+    if dims["hauteur"] > dims["largeur"]:
+        classe = "illustration portrait"
+    else:
+        classe = "illustration" if dims["largeur"] >= 1100 else "illustration etroite"
     return f"""<figure class="{classe}">
     <img src="/images/{nom}-1400.webp"
          srcset="/images/{nom}-800.webp 800w, /images/{nom}-1400.webp 1400w"
@@ -493,12 +496,18 @@ def normaliser(texte: str) -> str:
     return "".join(c for c in t if not unicodedata.combining(c))
 
 
+def cle_tri(p: dict) -> str:
+    """Ordre alphabétique sans l'article initial : « La tour de Babel » se range à T."""
+    return re.sub(r"^(le|la|les|l)-", "", slugifier(p["titre"].replace("’", "'").replace("'", " ")))
+
+
 def carte(p: dict, manifeste: dict) -> str:
     bloc = p.get("image") or {}
     nom = bloc.get("fichier")
     if nom in manifeste:
         d = manifeste[nom]
-        visuel = (f'<img class="carte-image" src="/images/{nom}-800.webp" width="{d["largeur"]}" '
+        classe_img = "carte-image vertical" if d["hauteur"] > d["largeur"] else "carte-image"
+        visuel = (f'<img class="{classe_img}" src="/images/{nom}-800.webp" width="{d["largeur"]}" '
                   f'height="{d["hauteur"]}" alt="" loading="lazy" decoding="async">')
     else:
         visuel = f'<span class="carte-aplat" aria-hidden="true">{p["libelle"]}</span>'
@@ -516,7 +525,7 @@ def carte(p: dict, manifeste: dict) -> str:
 def mosaique(pages: list, manifeste: dict, outils: bool = True) -> str:
     if not pages:
         return "<p>Aucune fiche publiée pour le moment.</p>"
-    cartes = "\n".join(carte(p, manifeste) for p in sorted(pages, key=lambda p: slugifier(p["titre"])))
+    cartes = "\n".join(carte(p, manifeste) for p in sorted(pages, key=cle_tri))
     barre = ""
     if outils:
         presentes = [n for n in NATURES if any(p.get("nature") == n for p in pages)]

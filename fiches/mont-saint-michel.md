@@ -5,6 +5,12 @@ nature: lieu
 format: complète
 chapo: "Un rocher de la Manche porte une ville fortifiée et une abbaye construite sur plusieurs siècles. Le Mont-Saint-Michel réunit un lieu de culte, une ancienne prison et un paysage de baie dont le caractère maritime a fait l'objet de grands travaux."
 themes: [architecture, paysage, patrimoine]
+image:
+  fichier: mont-saint-michel-baie
+  credit: "Photo : Nicolas Guelle, juillet 2023."
+  licence: tous droits réservés
+  legende: "Le Mont depuis la baie, en juillet 2023 : le flanc boisé du rocher, l'abbaye et sa flèche."
+  alt: "Le rocher du Mont-Saint-Michel, boisé sur un flanc, porte l'abbaye et sa flèche sous un ciel nuageux ; l'eau de la baie l'entoure au premier plan."
 publie: non
 mise_a_jour: 2026-10-31
 ---

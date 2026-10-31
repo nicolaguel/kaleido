@@ -205,3 +205,8 @@ strong { font-weight: 600; }
 .texte .dans-le-texte { margin: 2rem 0 2.25rem; }
 .texte .dans-le-texte figcaption { font-size: .875rem; }
 @media (max-width: 36rem) { .texte .dans-le-texte { margin-left: 0; margin-right: 0; } }
+
+/* Images verticales (statue, portrait) : centrées, sans dépasser la hauteur de l'écran */
+.illustration.portrait img, .texte .dans-le-texte img { width: auto; height: auto; max-width: 100%; max-height: 85vh; margin: 0 auto; }
+.illustration.portrait figcaption { margin-left: auto; margin-right: auto; }
+.carte-image.vertical { object-position: 50% 12%; }

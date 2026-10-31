@@ -14,5 +14,25 @@
   "ermenonville-temple-philosophie": {
     "largeur": 2576,
     "hauteur": 1717
+  },
+  "friedrich-abbaye-foret-chenes": {
+    "largeur": 1280,
+    "hauteur": 820
+  },
+  "friedrich-voyageur-mer-de-nuages": {
+    "largeur": 2012,
+    "hauteur": 2576
+  },
+  "david-accademia": {
+    "largeur": 1716,
+    "hauteur": 2576
+  },
+  "david-tribuna": {
+    "largeur": 1717,
+    "hauteur": 1983
+  },
+  "mont-saint-michel-baie": {
+    "largeur": 3970,
+    "hauteur": 2647
   }
 }

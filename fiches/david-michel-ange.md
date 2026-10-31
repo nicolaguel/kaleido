@@ -5,6 +5,12 @@ nature: œuvre
 format: complète
 chapo: "Commandé pour la cathédrale de Florence, le David devient une image de la cité devant son palais de gouvernement. Sa posture suspend l'action ; ses déplacements et ses copies changent ensuite la manière de le regarder."
 themes: [sculpture, récit biblique, patrimoine]
+image:
+  fichier: david-accademia
+  credit: "Photo : Nicolas Guelle, Florence, février 2026."
+  licence: tous droits réservés
+  legende: "Le David à la Galleria dell'Accademia : le poids du corps porté par une jambe, la tête tournée de côté."
+  alt: "Statue de marbre d'un jeune homme nu, debout, une fronde posée sur l'épaule, le regard tourné sur le côté, devant une coupole claire."
 publie: non
 mise_a_jour: 2026-10-31
 ---
@@ -48,6 +54,8 @@ Ce sens politique n'annule pas l'identité biblique du personnage. Il montre plu
 Le document de l'Accademia consacré aux déplacements des collections situe le départ de la statue dans la nuit du 31 juillet 1873. Le transfert répond à la fragilité d'un marbre exposé depuis des siècles. Le passage au musée constitue une mesure de conservation autant qu'un changement de regard.
 
 L'œuvre n'est pas immédiatement présentée dans la disposition connue aujourd'hui. Le dossier pédagogique du musée distingue son arrivée de l'achèvement de la Tribuna, conçue par Emilio De Fabris et terminée en 1882. Une date de transfert ne doit donc pas être confondue avec celle de l'installation définitive.
+
+![La statue sur son haut piédestal, au centre d'une abside à caissons éclairée d'en haut.](image:david-tribuna "Le David dans la Tribuna de la Galleria dell'Accademia, à Florence, en février 2026. Photo : Nicolas Guelle.")
 
 Sur la place, la copie installée en 1910 maintient la présence du héros devant le palais. Les documents municipaux confirment cette date. L'original protégé et son substitut public répondent désormais à deux exigences : conserver la matière de Michel-Ange et maintenir une image dans son contexte urbain.
 
