@@ -367,6 +367,10 @@ def page_fiche(page: dict, index: dict, pages: list, manifeste: dict) -> str:
                  if not page["publie_ok"] else "")
     duree = ("moins de 2 minutes" if page["minutes"] < 2
              else f"environ {page['minutes']} minutes")
+    if page.get("nature") == "panorama":
+        # Un panorama n'a que deux sections ## : son sommaire, ce sont ses entrées ###
+        sommaire = [f'<li><a href="#{i}">{t}</a></li>'
+                    for i, t in re.findall(r'<h3 id="([^"]+)">(.*?)</h3>', corps_html, re.S)]
     nav_sommaire = (f'<nav class="sommaire" aria-label="Sommaire"><p class="sommaire-titre">Dans cette fiche</p>'
                     f'<ol>{"".join(sommaire)}</ol></nav>') if len(sommaire) >= 3 else ""
     contenu = f"""<article class="cadre {page["classe"]}">
