@@ -50,5 +50,9 @@
   "tolkien-1925": {
     "largeur": 1800,
     "hauteur": 2400
+  },
+  "jung-portrait-eth": {
+    "largeur": 1920,
+    "hauteur": 2368
   }
 }

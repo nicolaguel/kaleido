@@ -5,6 +5,13 @@ nature: personne
 format: complète
 chapo: "Psychiatre suisse, Carl Gustav Jung fonde la psychologie analytique après sa rupture avec Freud. Ses notions d'archétype, d'inconscient collectif et d'individuation ont une large postérité, mais leur statut scientifique et certaines de ses positions historiques restent discutés."
 themes: [philosophie, psychologie]
+image:
+  fichier: jung-portrait-eth
+  source: https://commons.wikimedia.org/wiki/File:ETH-BIB-Jung,_Carl_Gustav_(1875-1961)-Portrait-Portr_14163_(cropped).tif
+  credit: "ETH-Bibliothek Zürich, Bildarchiv, Portr_14163. CC BY-SA 4.0, via Wikimedia Commons."
+  licence: CC BY-SA 4.0
+  legende: "Carl Gustav Jung, pipe à la main ; portrait conservé par les archives photographiques de la bibliothèque de l'ETH Zurich."
+  alt: "Photographie en noir et blanc d'un homme âgé à lunettes rondes et moustache blanche, en chemise claire et cravate, tenant une pipe, devant un feuillage sombre."
 publie: non
 mise_a_jour: 2026-10-31
 ---
