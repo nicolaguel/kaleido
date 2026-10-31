@@ -12,7 +12,7 @@ image:
   licence: domaine public
   legende: "Les troncs et la ruine organisent une élévation au-dessus du cortège funéraire."
   alt: "Des chênes sans feuilles entourent un pan d'église gothique ; de petites silhouettes accompagnent un cercueil au milieu de tombes sombres."
-publie: non
+publie: oui
 mise_a_jour: 2026-10-31
 ---
 

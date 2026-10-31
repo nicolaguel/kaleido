@@ -12,7 +12,7 @@ image:
   licence: domaine public
   legende: "J. R. R. Tolkien vers 1925, l'année où il devient professeur à Oxford."
   alt: "Portrait en noir et blanc d'un homme de trois quarts, cheveux coiffés en arrière, col blanc et veste de tweed, sur fond sombre."
-publie: non
+publie: oui
 mise_a_jour: 2026-10-31
 ---
 

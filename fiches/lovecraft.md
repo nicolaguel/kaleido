@@ -12,7 +12,7 @@ image:
   licence: domaine public
   legende: "H. P. Lovecraft en juin 1934, trois ans avant sa mort."
   alt: "Portrait en noir et blanc d'un homme au visage allongé, cheveux courts, en costume sombre et cravate, regardant l'objectif."
-publie: non
+publie: oui
 mise_a_jour: 2026-10-31
 ---
 

@@ -12,7 +12,7 @@ image:
   licence: CC BY-SA 4.0
   legende: "Carl Gustav Jung, pipe à la main ; portrait conservé par les archives photographiques de la bibliothèque de l'ETH Zurich."
   alt: "Photographie en noir et blanc d'un homme âgé à lunettes rondes et moustache blanche, en chemise claire et cravate, tenant une pipe, devant un feuillage sombre."
-publie: non
+publie: oui
 mise_a_jour: 2026-10-31
 ---
 

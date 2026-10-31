@@ -11,7 +11,7 @@ image:
   licence: domaine public
   legende: "Dans *The Architect's Dream*, Thomas Cole réunit en un seul paysage des architectures de plusieurs époques, autour d'un architecte allongé qui les contemple."
   alt: "Entre deux rideaux, un homme allongé au sommet d'une colonne regarde un paysage où se côtoient une église gothique, des temples à colonnes, un aqueduc et une pyramide au bord de l'eau."
-publie: non
+publie: oui
 mise_a_jour: 2026-10-31
 ---
 

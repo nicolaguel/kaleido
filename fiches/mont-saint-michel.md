@@ -11,7 +11,7 @@ image:
   licence: tous droits réservés
   legende: "Le Mont depuis la baie, en juillet 2023 : le flanc boisé du rocher, l'abbaye et sa flèche."
   alt: "Le rocher du Mont-Saint-Michel, boisé sur un flanc, porte l'abbaye et sa flèche sous un ciel nuageux ; l'eau de la baie l'entoure au premier plan."
-publie: non
+publie: oui
 mise_a_jour: 2026-10-31
 ---
 

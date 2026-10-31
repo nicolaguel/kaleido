@@ -12,7 +12,7 @@ image:
   licence: domaine public
   legende: "La figure de dos occupe le centre du tableau tout en masquant une partie du paysage."
   alt: "Un homme en manteau vert, appuyé sur une canne, se tient sur un rocher devant des reliefs émergeant du brouillard."
-publie: non
+publie: oui
 mise_a_jour: 2026-10-31
 ---
 

@@ -11,7 +11,7 @@ image:
   licence: tous droits réservés
   legende: "Le David à la Galleria dell'Accademia : le poids du corps porté par une jambe, la tête tournée de côté."
   alt: "Statue de marbre d'un jeune homme nu, debout, une fronde posée sur l'épaule, le regard tourné sur le côté, devant une coupole claire."
-publie: non
+publie: oui
 mise_a_jour: 2026-10-31
 ---
 
