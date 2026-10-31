@@ -5,6 +5,13 @@ nature: personne
 format: complète
 chapo: "Philologue et écrivain britannique, Tolkien relie l'invention de langues à celle d'un passé imaginaire. La Terre du Milieu se construit par reprises et révisions ; les éditions de Christopher Tolkien rendent visible une partie de ce travail."
 themes: [littérature, langues, mythologie]
+image:
+  fichier: tolkien-1925
+  source: https://commons.wikimedia.org/wiki/File:J._R._R._Tolkien,_ca._1925.jpg
+  credit: "Photographie, vers 1925. Domaine public, via Wikimedia Commons."
+  licence: domaine public
+  legende: "J. R. R. Tolkien vers 1925, l'année où il devient professeur à Oxford."
+  alt: "Portrait en noir et blanc d'un homme de trois quarts, cheveux coiffés en arrière, col blanc et veste de tweed, sur fond sombre."
 publie: non
 mise_a_jour: 2026-10-31
 ---

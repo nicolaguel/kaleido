@@ -46,5 +46,9 @@
   "lovecraft-1934": {
     "largeur": 512,
     "hauteur": 628
+  },
+  "tolkien-1925": {
+    "largeur": 1800,
+    "hauteur": 2400
   }
 }
