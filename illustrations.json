@@ -54,5 +54,17 @@
   "jung-portrait-eth": {
     "largeur": 1920,
     "hauteur": 2368
+  },
+  "loggia-persee-cellini": {
+    "largeur": 1717,
+    "hauteur": 2576
+  },
+  "loggia-hercule-nessus": {
+    "largeur": 1619,
+    "hauteur": 1080
+  },
+  "loggia-menelas-patrocle": {
+    "largeur": 1717,
+    "hauteur": 2576
   }
 }
