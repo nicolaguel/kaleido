@@ -12,7 +12,7 @@ image:
   licence: tous droits réservés
   legende: "Le *Persée* de Cellini sous les voûtes de la Loggia ; à l'arrière-plan, le groupe de Ménélas et Patrocle."
   alt: "Statue de bronze d'un jeune homme nu au casque ailé, une épée dans une main et une tête coupée dans l'autre, debout sur un corps, au sommet d'un haut piédestal de marbre sculpté, sous des arcs gothiques."
-publie: non
+publie: oui
 mise_a_jour: 2026-10-31
 ---
 
