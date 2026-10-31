@@ -4,6 +4,13 @@ slug: styles-architecture
 nature: panorama
 chapo: "Quatorze repères pour lire l'architecture occidentale, de l'Antiquité au XXe siècle : formes, périodes et édifices. Chaque entrée ouvre vers une future fiche ; les catégories et leurs frontières se recouvrent."
 themes: [architecture]
+image:
+  fichier: cole-reve-architecte
+  source: https://artsandculture.google.com/asset/the-architect-s-dream-thomas-cole-american-born-england-1801%E2%80%931848/bAEN33kJ19wwgg
+  credit: "Thomas Cole, The Architect's Dream, 1840, Toledo Museum of Art. Domaine public."
+  licence: domaine public
+  legende: "Dans *The Architect's Dream*, Thomas Cole réunit en un seul paysage des architectures de plusieurs époques, autour d'un architecte allongé qui les contemple."
+  alt: "Entre deux rideaux, un homme allongé au sommet d'une colonne regarde un paysage où se côtoient une église gothique, des temples à colonnes, un aqueduc et une pyramide au bord de l'eau."
 publie: non
 mise_a_jour: 2026-10-31
 ---
@@ -15,6 +22,8 @@ Un style permet de rapprocher des édifices par leurs formes, leurs techniques e
 Ce panorama retient quatorze repères de l'architecture occidentale, de l'Antiquité au XXe siècle, en suivant approximativement leur apparition. Les limites entre styles sont des conventions d'historiens qui se recouvrent ; leur succession ne décrit pas un progrès continu. Certains mouvements continuent longtemps après l'émergence du suivant.
 
 La sélection privilégie des édifices européens comme points de comparaison. Elle laisse de côté les architectures extra-européennes, les traditions vernaculaires et plusieurs courants qui demanderont d'autres parcours. Chaque entrée propose des indices visuels et un exemple, sans transformer ces indices en règle absolue. Les liens conduisent à de futures fiches.
+
+![Des centaines d'édifices s'empilent en une seule ville imaginaire : temples égyptiens au premier plan, puis frontons, coupoles, flèches gothiques et campaniles.](image:cockerell-reve-professeur "Charles Robert Cockerell, *The Professor's Dream*, 1848 : des monuments de toutes les époques réunis dans une même vue. Domaine public.")
 
 ### L'architecture grecque antique
 

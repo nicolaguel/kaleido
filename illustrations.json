@@ -34,5 +34,13 @@
   "mont-saint-michel-baie": {
     "largeur": 3970,
     "hauteur": 2647
+  },
+  "cole-reve-architecte": {
+    "largeur": 1280,
+    "hauteur": 786
+  },
+  "cockerell-reve-professeur": {
+    "largeur": 2000,
+    "hauteur": 1297
   }
 }
