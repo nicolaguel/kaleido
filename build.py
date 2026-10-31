@@ -302,12 +302,32 @@ def rencontre_html(page: dict) -> str:
     return f'<p class="rencontre">{html.escape(typographie(str(page["rencontre"])))}</p>'
 
 
+IMAGE_TEXTE = re.compile(r'^!\[([^\]]*)\]\(image:([a-z0-9-]+)(?:\s+"([^"]*)")?\)\s*$', re.M)
+
+
+def images_dans_le_texte(texte: str, manifeste: dict) -> str:
+    """Une ligne ![alt](image:nom "Légende") devient une figure, si l'image est importée."""
+
+    def remplacer(m):
+        alt, nom, legende = m.group(1), m.group(2), m.group(3) or ""
+        if nom not in manifeste:
+            return ""
+        d = manifeste[nom]
+        legende_html = f"<figcaption>{italiques(html.escape(legende))}</figcaption>" if legende else ""
+        return (f'\n<figure class="illustration dans-le-texte">'
+                f'<img src="/images/{nom}-1400.webp" srcset="/images/{nom}-800.webp 800w, /images/{nom}-1400.webp 1400w" '
+                f'sizes="(min-width: 44rem) 40rem, 100vw" width="{d["largeur"]}" height="{d["hauteur"]}" '
+                f'alt="{html.escape(alt)}" loading="lazy" decoding="async">{legende_html}</figure>\n')
+
+    return IMAGE_TEXTE.sub(remplacer, texte)
+
+
 def url_theme(theme: str) -> str:
     return f"/themes/{slugifier(theme)}/"
 
 
 def page_fiche(page: dict, index: dict, pages: list, manifeste: dict) -> str:
-    corps_html = rendre_markdown(liens_wiki(page["corps"], index))
+    corps_html = rendre_markdown(images_dans_le_texte(liens_wiki(page["corps"], index), manifeste))
     sections = decouper_sections(corps_html)
 
     blocs, sommaire = [], []

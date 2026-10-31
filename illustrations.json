@@ -2,5 +2,17 @@
   "bruegel-tour-de-babel-vienne": {
     "largeur": 1280,
     "hauteur": 937
+  },
+  "ermenonville-ile-des-peupliers-lac": {
+    "largeur": 2576,
+    "hauteur": 1717
+  },
+  "ermenonville-cenotaphe-rousseau": {
+    "largeur": 2576,
+    "hauteur": 1717
+  },
+  "ermenonville-temple-philosophie": {
+    "largeur": 2576,
+    "hauteur": 1717
   }
 }

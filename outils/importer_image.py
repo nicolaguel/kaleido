@@ -11,7 +11,7 @@ import json
 import sys
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 RACINE = Path(__file__).resolve().parent.parent
 DOSSIER = RACINE / "static" / "images"
@@ -22,7 +22,10 @@ LARGEURS = (800, 1400)
 def importer(source: Path, nom: str) -> None:
     DOSSIER.mkdir(parents=True, exist_ok=True)
     image = Image.open(source)
-    image = image.convert("RGB")
+    # Redresse selon l'orientation de l'appareil, puis repart d'une image sans
+    # métadonnées (EXIF, GPS) : rien de l'appareil ni du lieu ne sort sur le site.
+    image = ImageOps.exif_transpose(image).convert("RGB")
+    image = Image.frombytes("RGB", image.size, image.tobytes())
     largeur, hauteur = image.size
     for cible in LARGEURS:
         l = min(cible, largeur)

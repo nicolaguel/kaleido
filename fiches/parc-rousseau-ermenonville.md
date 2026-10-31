@@ -12,6 +12,12 @@ identite:
   création: années 1760 et 1770
   nature: jardin paysager orné de fabriques
   propriétaire_actuel: Département de l'Oise (parc départemental)
+image:
+  fichier: ermenonville-ile-des-peupliers-lac
+  credit: "Photo : Nicolas Guelle."
+  licence: tous droits réservés
+  legende: "L'île des Peupliers et son monument, au bord du lac du parc."
+  alt: "Un lac calme reflète une rangée de grands peupliers ; sur l'île, à droite, un monument de pierre blanche ; au loin, une demeure claire parmi les arbres."
 publie: non
 mise_a_jour: 2026-10-31
 ---
@@ -44,6 +50,8 @@ La prairie arcadienne appartient aussi à ce vocabulaire. Le guide la présente 
 
 ## Un temple laissé ouvert au savoir
 
+![Une rotonde à colonnes, aux murs de pierres brutes, apparaît entre les feuillages en haut d'une pente.](image:ermenonville-temple-philosophie "Le temple de la Philosophie moderne, laissé inachevé à dessein. Photo : Nicolas Guelle.")
+
 Le temple de la Philosophie moderne ne doit pas être compris comme un bâtiment seulement ruiné par le temps. Le guide de 1811 décrit un monument dédié à Montaigne et à une philosophie encore imparfaite. Il relève les matériaux disposés autour de la rotonde et explique qu'ils attendent de nouveaux grands esprits pour poursuivre l'ouvrage.
 
 Ses six colonnes portent les noms de Newton, Descartes, Voltaire, William Penn, Montesquieu et Rousseau. À chacun est associée une idée : la lumière pour Newton, l'humanité pour Penn, la justice pour Montesquieu, la nature pour Rousseau. Cette réunion expose un choix de figures et de valeurs ; elle ne propose pas un classement exhaustif des philosophes.
@@ -55,6 +63,8 @@ L'inachèvement fait ainsi partie du sens annoncé par le guide. La philosophie 
 Le rapprochement avec Rousseau précède son séjour. La commune rapproche notamment le projet de *La Nouvelle Héloïse*, publiée en 1761. Gérard Blanchard, dans son étude de 1981, lit lui aussi Ermenonville à travers le jardin de l'Élysée décrit dans ce roman. Ce rapprochement relève d'une lecture du projet ; il ne fait pas de Rousseau le concepteur matériel du parc.
 
 L'île des Peupliers ajoute ensuite au paysage une fonction funéraire. Le guide ancien conseille de regarder le tombeau depuis le banc des Mères de famille, puis imagine sa contemplation au clair de lune. Ce passage témoigne de la mise en scène du souvenir et de l'émotion recherchée chez les admirateurs du philosophe.
+
+![Un monument funéraire de pierre blanche se dresse sur une île plantée de grands peupliers, au-delà d'une eau couverte de nénuphars.](image:ermenonville-cenotaphe-rousseau "Le monument de l'île des Peupliers : tombeau de Rousseau de 1778 à 1794, cénotaphe depuis. Photo : Nicolas Guelle.")
 
 Le même guide raconte que Rousseau aurait donné son nom à l'autel de la Rêverie après s'y être arrêté. Ce récit, imprimé dans l'édition de 1811, appartient à la mémoire transmise par l'itinéraire ; il n'est pas ici tenu pour un geste personnel indépendamment établi. De même, la commune distingue la cabane du Désert d'un ermitage disparu du parc sud : un nom associé à Rousseau ne suffit pas à identifier un lieu de résidence.
 

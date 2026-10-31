@@ -81,7 +81,11 @@ def controler(chemin: Path, existantes: set[str]) -> tuple[list[str], list[str]]
     # --- image
     image = meta.get("image")
     if image:
+        # Une photo de Nicolas n'a pas de page source : seul le crédit l'identifie.
+        photo_perso = "Nicolas Guelle" in str((image or {}).get("credit", ""))
         for c in CHAMPS_IMAGE:
+            if c == "source" and photo_perso:
+                continue
             if not (image or {}).get(c):
                 erreurs.append(f"image : champ absent : {c}")
         src = str((image or {}).get("source", ""))

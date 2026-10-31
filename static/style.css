@@ -200,3 +200,8 @@ strong { font-weight: 600; }
 @media (prefers-reduced-motion: no-preference) {
     html { scroll-behavior: smooth; }
 }
+
+/* Images placées dans le texte d'une fiche (photos personnelles notamment) */
+.texte .dans-le-texte { margin: 2rem 0 2.25rem; }
+.texte .dans-le-texte figcaption { font-size: .875rem; }
+@media (max-width: 36rem) { .texte .dans-le-texte { margin-left: 0; margin-right: 0; } }
