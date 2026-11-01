@@ -11,7 +11,7 @@ image:
   licence: tous droits réservés
   legende: "Un roi devant un dieu à tête de faucon coiffé du disque solaire, relief peint d'une tombe de la Vallée des Rois."
   alt: "Relief peint sur fond jaune : un roi coiffé d'une haute couronne tend la main vers un dieu à tête de faucon surmontée d'un disque rouge, entourés de hiéroglyphes."
-publie: non
+publie: oui
 mise_a_jour: 2026-11-01
 ---
 
@@ -27,6 +27,8 @@ Ce n'est ni un panthéon exhaustif ni un résumé des mythes. C'est un aide-mém
 
 À Thèbes, Amon apparaît sous forme humaine, souvent coiffé de deux hautes plumes verticales. Il peut aussi prendre l'aspect d'un bélier. Son nom est particulièrement lié aux temples de Karnak et de Louxor. Associé au soleil sous le nom d'Amon-Rê, il ne doit pas être confondu avec tous les dieux portant un disque solaire.
 
+![Rangée de sphinx à tête de bélier devant une colonnade et un haut pylône, sous un ciel bleu.](image:dieux-amon-sphinx "Sphinx à tête de bélier, à Karnak. Photo : Nicolas Guelle, Égypte, février 2023.")
+
 [[amon]]
 
 ### Osiris
@@ -39,6 +41,8 @@ Osiris est généralement représenté immobile, le corps enveloppé d'un linceu
 
 Horus se reconnaît au faucon, parfois entier, parfois sous la forme d'une tête de rapace sur un corps humain. Il est étroitement associé à la royauté. À Edfou, son grand temple donne à voir cette iconographie, notamment des faucons sculptés. Attention : une tête de faucon ne désigne pas automatiquement Horus, car d'autres dieux la portent.
 
+![Statue de faucon en pierre sombre, debout sur un socle devant le mur d'un temple.](image:dieux-horus-edfou "Le faucon de pierre du temple d'Edfou. Photo : Nicolas Guelle, Égypte, février 2023.")
+
 [[horus]]
 
 ### Haroéris (Horus l'Ancien)
@@ -50,6 +54,8 @@ Horus se reconnaît au faucon, parfois entier, parfois sous la forme d'une tête
 ### Sobek
 
 Sobek a une tête de crocodile sur un corps humain, ou prend l'aspect d'un crocodile entier. Il est lié à l'eau et à la fécondité. À Kom Ombo, son sanctuaire est placé parallèlement à celui d'Haroéris. Les crocodiles momifiés conservés près du temple rappellent l'importance cultuelle de l'animal, sans faire de chaque crocodile vivant une incarnation certaine du dieu.
+
+![Deux crocodiles momifiés couchés dans une vitrine sombre, vus de profil.](image:kom-ombo-crocodiles-vitrine "Crocodiles momifiés, musée du Crocodile de Kom Ombo. Photo : Nicolas Guelle, Égypte, février 2023.")
 
 [[sobek]]
 
@@ -75,11 +81,15 @@ Rê-Horakhty associe le dieu solaire Rê à Horus des horizons. Il prend volonti
 
 Anubis se distingue par sa tête de canidé noir, ou par sa forme d'animal couché, au museau pointu et aux oreilles dressées. Il veille sur l'embaumement et les rites funéraires. Son image apparaît sur les cercueils et dans les tombes, notamment dans la région thébaine. Le noir renvoie aussi aux significations funéraires et régénératrices de sa figure.
 
+![Statue d'un canidé noir aux grandes oreilles dressées et au collier doré, couché sur un socle dans une vitrine.](image:dieux-anubis-caire "Anubis, en canidé noir aux oreilles dressées, Musée égyptien du Caire. Photo : Nicolas Guelle, Égypte, février 2023.")
+
 [[anubis]]
 
 ### Bès
 
 Bès se présente souvent de face, petit, trapu, avec une barbe, une grimace, parfois une crinière et une coiffe de plumes. Cette frontalité le rend reconnaissable parmi les figures habituellement montrées de profil. Protecteur du foyer et des enfants, il apparaît surtout sur des objets et amulettes plutôt que dans les grands sanctuaires monumentaux.
+
+![Bloc de grès sculpté d'un visage frontal aux sourcils froncés et aux dents apparentes, entre deux oreilles, devant le Nil.](image:dieux-bloc-philae "Visage frontal grimaçant sculpté sur un bloc, à Philae : la frontalité et les dents apparentes sont des traits habituels de Bès. Photo : Nicolas Guelle, Égypte, février 2023.")
 
 [[bes]]
 
@@ -98,6 +108,8 @@ Ptah est un dieu majeur de Memphis. Il apparaît comme un homme enveloppé d'un 
 ### Thot
 
 Thot est figuré comme un homme à tête d'ibis, comme un ibis entier ou sous l'aspect d'un babouin. Dieu de l'écriture, des scribes et du savoir, il est particulièrement lié à Hermopolis. Son image apparaît sur de petits objets votifs et dans les scènes religieuses ; l'ibis au long bec courbé constitue un premier indice visuel.
+
+![Statue peinte d'un homme assis en tailleur, vêtu d'un pagne blanc, qui tient un rouleau sur ses genoux, dans une vitrine de musée.](image:dieux-scribe-caire "Scribe accroupi, Musée égyptien du Caire. Les scribes relevaient de la protection de Thot. Photo : Nicolas Guelle, Égypte, février 2023.")
 
 [[thot]]
 

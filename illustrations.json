@@ -86,5 +86,45 @@
   "dieux-egypte-relief-faucon": {
     "largeur": 1575,
     "hauteur": 2362
+  },
+  "abou-simbel-facade-entiere": {
+    "largeur": 1565,
+    "hauteur": 1044
+  },
+  "abou-simbel-relief-ennemi": {
+    "largeur": 1600,
+    "hauteur": 1889
+  },
+  "philae-kiosque-trajan": {
+    "largeur": 1600,
+    "hauteur": 1200
+  },
+  "kom-ombo-crocodiles-momies": {
+    "largeur": 1600,
+    "hauteur": 2400
+  },
+  "kom-ombo-crocodiles-vitrine": {
+    "largeur": 1600,
+    "hauteur": 1200
+  },
+  "dieux-amon-sphinx": {
+    "largeur": 1542,
+    "hauteur": 867
+  },
+  "dieux-horus-edfou": {
+    "largeur": 1590,
+    "hauteur": 2063
+  },
+  "dieux-anubis-caire": {
+    "largeur": 930,
+    "hauteur": 946
+  },
+  "dieux-bloc-philae": {
+    "largeur": 1600,
+    "hauteur": 1200
+  },
+  "dieux-scribe-caire": {
+    "largeur": 1532,
+    "hauteur": 2043
   }
 }

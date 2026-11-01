@@ -15,7 +15,7 @@ image:
   licence: tous droits réservés
   legende: "Une salle à colonnes du temple de Philae, éclairée de nuit, de porte en porte vers le sanctuaire."
   alt: "Salle à colonnes sombres éclairée par en dessous, au sol de bois ; des portes alignées s'ouvrent l'une derrière l'autre jusqu'au fond de la perspective."
-publie: non
+publie: oui
 mise_a_jour: 2026-11-01
 ---
 
@@ -24,6 +24,8 @@ mise_a_jour: 2026-11-01
 Le temple que l'on appelle « Philae » ne se trouve plus sur l'île où il a été construit. Il occupe aujourd'hui l'île d'Agilkia, près d'Assouan. Cette transplantation permet de lire deux histoires à la fois : celle d'un sanctuaire consacré à Isis, encore actif longtemps après la fin des pharaons, et celle de son sauvetage au XXe siècle.
 
 Le complexe réunit des édifices majoritairement ptolémaïques et romains. Le grand temple d'Isis fut commencé sous Ptolémée II Philadelphe, au IIIe siècle avant notre ère. À proximité subsistent un temple d'Hathor, lié aux règnes de Ptolémée VI et d'Auguste, et le kiosque attribué à l'époque de Trajan, dont les colonnes portent une structure désormais privée de toiture. Les reliefs montrent notamment le souverain faisant des offrandes aux divinités.
+
+![Kiosque carré aux hautes colonnes à chapiteaux végétaux, sans toiture, sous un ciel bleu ; le soleil passe entre les colonnes et des visiteurs marchent au pied.](image:philae-kiosque-trajan "Le kiosque dit de Trajan, à Philae. Photo : Nicolas Guelle, Égypte, février 2023.")
 
 La longue activité du sanctuaire se lit dans ses inscriptions : celle du prêtre Esmet-Akhom, datée de 394 de notre ère, est présentée par le ministère égyptien comme la dernière inscription hiéroglyphique datée connue. Le culte perdura jusqu'à l'époque de Justinien, au VIe siècle, avant la fermeture des temples païens et la transformation d'une partie du site en église. Il serait pourtant imprudent de réduire cette mutation à un jour de fermeture incontesté.
 

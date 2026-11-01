@@ -15,7 +15,7 @@ image:
   licence: tous droits réservés
   legende: "Le temple de Kom Ombo au crépuscule, au bord du Nil."
   alt: "Temple de pierre dorée par la lumière du soir, aux colonnes à chapiteaux végétaux, derrière un mur d'enceinte, sous un ciel clair."
-publie: non
+publie: oui
 mise_a_jour: 2026-11-01
 ---
 
@@ -28,6 +28,10 @@ Le monument visible aujourd'hui date de la période gréco-romaine. Le ministèr
 Les reliefs montrent offrandes, divinités et calendriers rituels. Une scène d'époque romaine est interprétée par le ministère égyptien comme la représentation d'instruments chirurgicaux : elle mérite d'être regardée comme une proposition d'identification, non comme la preuve d'un hôpital installé dans le temple.
 
 Dans l'enceinte, un puits circulaire d'époque romaine est généralement identifié comme un nilomètre, dispositif servant à mesurer les variations du fleuve. Le musée voisin, ouvert en 2012, expose des crocodiles momifiés et des objets associés au culte de Sobek. Son évocation prolonge la lecture du temple : l'animal du Nil pouvait aussi être un animal sacré.
+
+![Deux crocodiles momifiés couchés dans une vitrine sombre, vus de profil, dont la tête est tournée vers le visiteur.](image:kom-ombo-crocodiles-vitrine "Crocodiles momifiés, musée du Crocodile de Kom Ombo. Photo : Nicolas Guelle, Égypte, février 2023.")
+
+![Un crocodile momifié, entouré de bandelettes, posé à plat sous une lumière vive, avec d'autres momies à ses côtés.](image:kom-ombo-crocodiles-momies "Une momie de crocodile bandelée, musée du Crocodile de Kom Ombo. Photo : Nicolas Guelle, Égypte, février 2023.")
 
 ## Pour aller plus loin
 

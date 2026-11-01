@@ -15,7 +15,7 @@ image:
   licence: tous droits réservés
   legende: "Deux des quatre colosses assis de Ramsès II sur la façade du grand temple d'Abou Simbel."
   alt: "Gros plan sur la façade de grès : deux statues colossales assises, mains posées sur les genoux, avec de petites figures debout entre leurs jambes, sous un ciel bleu."
-publie: non
+publie: oui
 mise_a_jour: 2026-11-01
 ---
 
@@ -33,9 +33,13 @@ Abou Simbel appartient depuis 1979 au bien inscrit par l'UNESCO « Monuments de 
 
 Le ministère égyptien du Tourisme et des Antiquités situe le creusement du grand temple autour de 1264 avant notre ère. Cette date est indicative : les chronologies de l'Égypte pharaonique ne sont pas toujours exprimées de la même façon. La façade forme un écran monumental dont les quatre colosses assis représentent Ramsès II. L'un d'eux s'est effondré lors d'un séisme ancien ; ses fragments sont restés au sol.
 
+![Façade du grand temple creusée dans la falaise : quatre colosses assis encadrent l'entrée, devant une foule de visiteurs minuscules.](image:abou-simbel-facade-entiere "La façade du grand temple d'Abou Simbel et ses quatre colosses de Ramsès II. Photo : Nicolas Guelle, Égypte, février 2023.")
+
 Le passage de l'extérieur à l'intérieur change d'échelle. Dans la grande salle, d'autres statues du roi bordent la circulation vers le sanctuaire. Au fond siègent quatre figures : Amon-Rê, Rê-Horakhty, Ptah et Ramsès II divinisé. L'organisation rapproche ainsi le souverain des grandes puissances divines auxquelles il veut être associé.
 
 Les reliefs développent un programme royal et religieux. On y voit le souverain dans des gestes de culte et des scènes de démonstration de pouvoir. Leur lecture ne se limite pas à une chronique d'événements : dans un temple égyptien, l'image affirme aussi l'ordre que le pharaon est censé maintenir. La façade, visible de loin, fait du rocher lui-même le support du discours royal.
+
+![Relief en creux sur la paroi de pierre : un personnage au bras levé domine un ennemi renversé, à côté d'un second grand personnage, entre des colonnes de hiéroglyphes.](image:abou-simbel-relief-ennemi "Scène de victoire sur un ennemi, relief d'une salle du grand temple. Photo : Nicolas Guelle, Égypte, février 2023.")
 
 ## Le petit temple : Hathor et Néfertari
 

@@ -16,7 +16,7 @@ image:
   licence: tous droits réservés
   legende: "La pyramide à degrés de Djoser, à Saqqarah."
   alt: "Pyramide à degrés de pierre claire se dressant sur un désert plat, sous un ciel bleu parsemé de nuages."
-publie: non
+publie: oui
 mise_a_jour: 2026-11-01
 ---
 
