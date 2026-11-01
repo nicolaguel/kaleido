@@ -9,6 +9,12 @@ identite:
   lieu: Nubie égyptienne, rive du lac Nasser
   époque: XIXe dynastie, règne de Ramsès II
   classement: patrimoine mondial de l'UNESCO, 1979, bien n° 88
+image:
+  fichier: abou-simbel-facade
+  credit: "Photo : Nicolas Guelle, Égypte, février 2023."
+  licence: tous droits réservés
+  legende: "Deux des quatre colosses assis de Ramsès II sur la façade du grand temple d'Abou Simbel."
+  alt: "Gros plan sur la façade de grès : deux statues colossales assises, mains posées sur les genoux, avec de petites figures debout entre leurs jambes, sous un ciel bleu."
 publie: non
 mise_a_jour: 2026-11-01
 ---

@@ -5,6 +5,12 @@ nature: panorama
 chapo: "Treize repères pour identifier les divinités et les symboles que l'on rencontre sur les reliefs, dans les temples et dans les musées d'Égypte, de Thèbes à Philae puis à Memphis."
 alias: [Divinités égyptiennes, Dieux de l'Égypte ancienne]
 themes: [mythologie, patrimoine, Égypte ancienne]
+image:
+  fichier: dieux-egypte-relief-faucon
+  credit: "Photo : Nicolas Guelle, Égypte, février 2023."
+  licence: tous droits réservés
+  legende: "Un roi devant un dieu à tête de faucon coiffé du disque solaire, relief peint d'une tombe de la Vallée des Rois."
+  alt: "Relief peint sur fond jaune : un roi coiffé d'une haute couronne tend la main vers un dieu à tête de faucon surmontée d'un disque rouge, entourés de hiéroglyphes."
 publie: non
 mise_a_jour: 2026-11-01
 ---

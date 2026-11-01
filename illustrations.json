@@ -66,5 +66,25 @@
   "loggia-menelas-patrocle": {
     "largeur": 1717,
     "hauteur": 2576
+  },
+  "abou-simbel-facade": {
+    "largeur": 1600,
+    "hauteur": 1067
+  },
+  "philae-salle-eclairee": {
+    "largeur": 1592,
+    "hauteur": 2386
+  },
+  "kom-ombo-temple-crepuscule": {
+    "largeur": 1537,
+    "hauteur": 1153
+  },
+  "pyramide-djoser-degres": {
+    "largeur": 1600,
+    "hauteur": 1200
+  },
+  "dieux-egypte-relief-faucon": {
+    "largeur": 1575,
+    "hauteur": 2362
   }
 }

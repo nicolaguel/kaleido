@@ -9,6 +9,12 @@ identite:
   lieu: Kom Ombo, au nord d'Assouan
   époque: période gréco-romaine
   divinités: Sobek et Haroéris
+image:
+  fichier: kom-ombo-temple-crepuscule
+  credit: "Photo : Nicolas Guelle, Égypte, février 2023."
+  licence: tous droits réservés
+  legende: "Le temple de Kom Ombo au crépuscule, au bord du Nil."
+  alt: "Temple de pierre dorée par la lumière du soir, aux colonnes à chapiteaux végétaux, derrière un mur d'enceinte, sous un ciel clair."
 publie: non
 mise_a_jour: 2026-11-01
 ---

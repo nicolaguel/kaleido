@@ -10,6 +10,12 @@ identite:
   commanditaire: Djoser (Netjerykhet), IIIe dynastie
   forme: pyramide à six degrés
   classement: patrimoine mondial UNESCO, 1979, bien n° 86
+image:
+  fichier: pyramide-djoser-degres
+  credit: "Photo : Nicolas Guelle, Égypte, février 2023."
+  licence: tous droits réservés
+  legende: "La pyramide à degrés de Djoser, à Saqqarah."
+  alt: "Pyramide à degrés de pierre claire se dressant sur un désert plat, sous un ciel bleu parsemé de nuages."
 publie: non
 mise_a_jour: 2026-11-01
 ---

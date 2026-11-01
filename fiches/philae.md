@@ -9,6 +9,12 @@ identite:
   lieu: île d'Agilkia, près d'Assouan
   divinité principale: Isis
   classement: patrimoine mondial UNESCO, 1979, bien n° 88
+image:
+  fichier: philae-salle-eclairee
+  credit: "Photo : Nicolas Guelle, Égypte, février 2023."
+  licence: tous droits réservés
+  legende: "Une salle à colonnes du temple de Philae, éclairée de nuit, de porte en porte vers le sanctuaire."
+  alt: "Salle à colonnes sombres éclairée par en dessous, au sol de bois ; des portes alignées s'ouvrent l'une derrière l'autre jusqu'au fond de la perspective."
 publie: non
 mise_a_jour: 2026-11-01
 ---
