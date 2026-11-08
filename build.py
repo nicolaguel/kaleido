@@ -238,7 +238,7 @@ def entete(courant: str = "") -> str:
 
 PIED = f"""<footer class="site-pied">
     <p class="pied-ligne"><a class="pied-site" href="/">{NOM_SITE}</a><span class="pied-sep" aria-hidden="true">/</span><a class="pied-hub" href="https://nicolaguel.fr/">nicolaguel.fr</a></p>
-    <p class="pied-mention">Textes écrits avec l’aide d’une intelligence artificielle, relus et vérifiés par l’auteur.</p>
+    <p class="pied-mention">Textes écrits avec l’aide d’une intelligence artificielle, relus et vérifiés par l’auteur. · <a href="/mentions-legales/">Mentions légales</a></p>
 </footer>"""
 
 
@@ -430,6 +430,20 @@ def donnees_structurees(page: dict, image: str) -> dict:
     return {"@context": "https://schema.org", "@graph": [article, ariane]}
 
 
+
+def page_mentions() -> str:
+    contenu = """<article class="simple">
+    <p class="ariane"><a href="/">Accueil</a></p>
+    <h1>Mentions légales</h1>
+    <p>Ce site est un site personnel, sans activité commerciale.</p>
+    <p><strong>Éditeur et directeur de la publication</strong> : Nicolas Guelle. Contact : via <a href="https://www.linkedin.com/in/nicolasguelle/">LinkedIn</a>.</p>
+    <p><strong>Hébergeur</strong> : Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis.</p>
+    <p><strong>Données personnelles</strong> : ce site n’utilise ni cookie, ni traceur, ni outil de mesure d’audience, et ne collecte aucune donnée.</p>
+    <p>Textes écrits avec l’aide d’une intelligence artificielle, relus et vérifiés par l’auteur.</p>
+</article>"""
+    return gabarit(f"Mentions légales — {NOM_SITE}", "Éditeur, hébergeur et données personnelles.", contenu, url="/mentions-legales/")
+
+
 # ---------------------------------------------------------------- fichiers pour moteurs et IA
 
 def tous_les_themes(pages: list) -> dict:
@@ -445,6 +459,7 @@ def sitemap(pages: list) -> str:
             (f"/{PREFIXE}/", None), ("/themes/", None)]
     urls += [(url_theme(t), None) for t in tous_les_themes(pages)]
     urls += [(p["url"], iso(p.get("mise_a_jour"))) for p in pages]
+    urls += [("/mentions-legales/", None)]
     lignes = "".join(
         f"  <url><loc>{URL_SITE}{u}</loc>" + (f"<lastmod>{m}</lastmod>" if m else "") + "</url>\n"
         for u, m in urls)
@@ -630,6 +645,7 @@ def main() -> None:
     for theme, du_theme in themes.items():
         ecrire(url_theme(theme), page_theme(theme, du_theme, manifeste))
     ecrire("/", page_accueil(pages, manifeste))
+    ecrire("/mentions-legales/", page_mentions())
     (SORTIE / "sitemap.xml").write_text(sitemap(pages), encoding="utf-8")
     (SORTIE / "robots.txt").write_text(robots_txt(), encoding="utf-8")
     (SORTIE / "flux.xml").write_text(flux_rss(pages), encoding="utf-8")
