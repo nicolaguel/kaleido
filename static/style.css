@@ -210,3 +210,8 @@ strong { font-weight: 600; }
 .illustration.portrait img, .texte .dans-le-texte img { width: auto; height: auto; max-width: 100%; max-height: 85vh; margin: 0 auto; }
 .illustration.portrait figcaption { margin-left: auto; margin-right: auto; }
 .carte-image.vertical { object-position: 50% 12%; }
+
+/* ---------------------------------------------------------------- pages simples (mentions légales) */
+.simple { max-width: var(--large); margin: 0 auto; padding: 3rem var(--gouttiere) 0; }
+.simple > * { max-width: var(--colonne); }
+.simple h1 { margin: .5rem 0 1.5rem; font-size: clamp(2.2rem, 6vw, 3rem); }
